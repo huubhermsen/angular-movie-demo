@@ -9,28 +9,33 @@ demoMovieApp
 
 		MovieService
 			.config()
-			.then(function(config){
+			.success(function(config){
 				$scope.config = config;
+                console.log(config)
 			});
 
 		MovieService
 			.popular()
-			.then(function(popularMovies){
+			.success(function(popularMovies){
 				$scope.popularMovies = _.first(popularMovies.results, 5);
 			});
 
 		$scope.search = function(){
-			if (runningQuery) {
+            if (runningQuery) {
 				clearTimeout(runningQuery);
 				runningQuery = false;
 			}
 			runningQuery = setTimeout(function(){
 				MovieService
 					.find($scope.query)
-					.then(function(movies){
-						setTimeout(function(){ $scope.$apply(function(){ $scope.results = movies.results; }); }, 10);
+					.success(function(movies){
+						$scope.results = movies.results;
 					});
 			}, queryTimeout);
 		}
+
+        $scope.showMovieModal = function(movie){
+            $scope.modalMovie = movie;
+        }
 
 	}]);

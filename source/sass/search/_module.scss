@@ -1,0 +1,35 @@
+.search {
+    text-align: center;
+}
+
+.search__fieldwrapper {
+    position: relative;
+    display: inline-block;
+    &:before {
+        position: absolute;
+        content: "";
+        right: 13px;
+        top: 11px;
+        width: 24px;
+        height: 24px;
+        background-color: red;
+    }
+}
+
+.search__field {
+    border: none;
+    background-color: white;
+    padding: 10px 15px;
+    font: {
+        size: 24px;
+        weight: 200;
+    }
+    width: 50px;
+    outline: none;
+    text-align: center;
+    transition: all 0.25s;
+    &:focus {
+        background-color: rgb(255,255,255);
+        width: 500px;
+    }
+}

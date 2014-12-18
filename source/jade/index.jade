@@ -9,18 +9,22 @@ block variables
 append content
 
     form.search
-        input.search__field( type="text" ng-model="query" ng-change="search()" )
+        label.search__fieldwrapper( for="query" )
+            input.search__field#query( type="text" name="query" ng-model="query" ng-change="search()" )
 
-    section.results
+    section.results( ng-if="results.length" ng-cloak )
+        h1 Search results
         .results__movies
             article.results__movie( ng-repeat="movie in results" ng-cloak )
-                header
-                    h1.results__movie-title {{ movie.title }}
                 img.results__movie-poster( ng-if="movie.poster_path" ng-src="{{config.images.secure_base_url}}{{config.images.poster_sizes[1]}}{{movie.poster_path}}" )
+                h1.results__movie-title {{ movie.title }}
 
     section.popular
+        h1 Popular movies
         .popular__movies
-            article.popular__movie( ng-repeat="movie in popularMovies" ng-cloak )
-                header
-                    h1.popular__movie-title {{ movie.title }}
+            article.popular__movie( ng-repeat="movie in popularMovies" ng-cloak ng-click="showMovieModal(movie)" )
                 img.popular__movie-poster( ng-src="{{config.images.secure_base_url}}{{config.images.poster_sizes[1]}}{{movie.poster_path}}" )
+                h1.popular__movie-title {{ movie.title }}
+
+    .movie-modal( style="background-image: url({{config.images.secure_base_url}}{{config.images.backdrop_sizes[2]}}{{modalMovie.backdrop_path}});" ng-if="modalMovie" )
+        h1 {{ modalMovie.title }}

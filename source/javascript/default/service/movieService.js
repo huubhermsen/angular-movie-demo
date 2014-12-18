@@ -5,50 +5,16 @@ demoMovieApp
 			api_key = "?api_key=13711b91ef1e384b40c112d3d85adad7";
 
 		MovieService.config = function(){
-			var deferred = $q.defer();
-
-			$http.get(requestUri + "configuration" + api_key)
-				.success(function(response){
-					deferred.resolve(response);
-				})
-				.error(function(error){
-					deferred.reject(error);
-				});
-
-			return deferred.promise;
+			return $http.get(requestUri + "configuration" + api_key);
 		}
 
 		MovieService.popular = function(){
-			var deferred = $q.defer();
-
-			$http.get(requestUri + "movie/popular" + api_key)
-				.success(function(response){
-					deferred.resolve(response);
-				})
-				.error(function(error){
-					deferred.reject(error);
-				});
-
-			return deferred.promise;
+			return $http.get(requestUri + "movie/popular" + api_key);
 		}
 
 		MovieService.find = function(query){
-			var deferred = $q.defer();
-
-			if (query.length === 0) {
-				deferred.resolve([]); 
-				return deferred.promise;
-			}
-
-			$http.get(requestUri + "search/movie" + api_key + "&query=" + query)
-				.success(function(response){
-					deferred.resolve(response);
-				})
-				.error(function(error){
-					deferred.reject(error);
-				});
-
-			return deferred.promise;
+			if (query == "") query = "_";
+            return $http.get(requestUri + "search/movie" + api_key + "&query=" + query);
 		}
 
 		return MovieService;
