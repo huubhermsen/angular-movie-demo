@@ -1,0 +1,67 @@
+/*!
+ *  Clearfix mixin
+ */
+@mixin clearfix {
+    *zoom: 1;
+    &:before, &:after {
+        content: " ";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+/*!
+ *  Add smooth scrolling (with bounce) to element in webkit browsers
+ */
+@mixin smooth-scroll {
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+    * {
+        transform: translate3d(0,0,0);
+    }
+}
+
+/*!
+ *  Visually hide element
+ */
+@mixin visually-hidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+/*!
+ *  Add 1px transparent gif to background
+ *  Fixes hit area problems in old IE anchors with transparent backgrounds
+ */
+@mixin transparent-gif {
+    background: {
+        image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7);
+        repeat: repeat;
+    }
+}
+
+/*!
+ *  Set placeholder color for all children of element
+ */
+@mixin placeholder-color($color-value) {
+    ::-webkit-input-placeholder {
+        color: $color-value;
+    }
+    :-moz-placeholder {
+        color: $color-value;
+    }
+    ::-moz-placeholder {
+        color: $color-value;
+    }
+    :-ms-input-placeholder {
+        color: $color-value;
+    }
+}

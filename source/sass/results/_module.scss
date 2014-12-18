@@ -1,0 +1,30 @@
+.results {
+	position: relative;
+}
+
+.results__movies {
+	overflow: hidden;
+	margin: 0 -10px;
+	text-align: center;
+}
+
+.results__movie {
+	position: relative;
+	display: inline-block;
+	margin: 0 10px;
+	width: 154px;
+}
+.results__movie-title {
+	font: {
+		size: 13px;
+		weight: normal;
+	}
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.results__movie-poster {
+	position: relative;
+	margin: 0 auto;
+}

@@ -1,0 +1,30 @@
+.popular {
+	position: relative;
+}
+
+.popular__movies {
+	overflow: hidden;
+	margin: 0 -10px;
+	text-align: center;
+}
+
+.popular__movie {
+	position: relative;
+	display: inline-block;
+	margin: 0 10px;
+	width: 154px;
+}
+.popular__movie-title {
+	font: {
+		size: 13px;
+		weight: normal;
+	}
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.popular__movie-poster {
+	position: relative;
+	margin: 0 auto;
+}

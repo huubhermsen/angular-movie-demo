@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="demoMovieApp" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Angular Movie Demo</title>
+    <meta name="description" content="Default page description">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="asset/js/modernizr.min.js"></script>
+    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" type="text/css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="asset/css/default.css" rel="stylesheet" type="text/css">
+  </head>
+  <body ng-controller="MovieController">
+    <section class="popular">
+      <div class="popular__movies">
+        <article ng-repeat="movie in popularMovies" ng-cloak class="popular__movie">
+          <header>
+            <h1 class="popular__movie-title">{{ movie.title }}</h1>
+          </header><img ng-src="{{config.images.secure_base_url}}{{config.images.poster_sizes[1]}}{{movie.poster_path}}" class="popular__movie-poster">
+        </article>
+      </div>
+    </section>
+    <script src="asset/js/all.js"></script>
+  </body>
+</html>

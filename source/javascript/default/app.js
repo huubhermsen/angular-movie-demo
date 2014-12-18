@@ -1,0 +1,1 @@
+var demoMovieApp = angular.module('demoMovieApp', ['ngRoute', 'ngAnimate']);
